@@ -17,7 +17,7 @@ export const List = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: 1000px;
+  max-width: 1400px;
   width: 100%;
   background-color: #f3eaea;
 `;
@@ -31,11 +31,11 @@ export const Item = styled.li`
 export const ProductData = styled.p`
   font-weight: 700;
   min-width: 300px;
-  min-width: ${({ red }) => (red ? "100px" : "")};
-  min-width: ${({ green }) => (green ? "100px" : "")};
+  min-width: ${({ $red }) => ($red ? "100px" : "")};
+  min-width: ${({ $green }) => ($green ? "100px" : "")};
   width: 100%;
-  color: ${({ red }) => (red ? "crimson" : "")};
-  color: ${({ green }) => (green ? "green" : "")};
+  color: ${({ $red }) => ($red ? "crimson" : "")};
+  color: ${({ $green }) => ($green ? "green" : "")};
 `;
 
 export const ColumnName = styled.div`

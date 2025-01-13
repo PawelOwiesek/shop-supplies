@@ -20,12 +20,29 @@ export const OnShopList = ({ products }) => {
         {products.map((product) => {
           return (
             <>
-              <Item key={product.name}>
+              <Item key={product.id}>
                 <ProductData>{product.name}</ProductData>
                 <ProductData> {product.brand}</ProductData>
-                <ProductData red>{product.price} €</ProductData>
-                <ProductData green>{product.quantity}</ProductData>
+                <ProductData $red>{product.price} €</ProductData>
+                <ProductData $green>{product.quantity}</ProductData>{" "}
+                <button
+                  style={{
+                    border: "2px solid black",
+                    padding: "3px 30px",
+                    borderRadius: "28px",
+                    margin: "20px",
+                    position: "absolute",
+                    fontSize: "20px",
+                    right: "430px",
+                    cursor: "pointer",
+                    backgroundColor: "#da7979",
+                  }}
+                  onClick={() => console.log(product.name)}
+                >
+                  Buy
+                </button>
               </Item>
+
               <Divider />
             </>
           );
