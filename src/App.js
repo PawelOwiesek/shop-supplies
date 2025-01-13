@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { OnShopList } from "./onShopList";
@@ -9,10 +10,12 @@ function App() {
   return (
     <div>
       <Header />
-      <OnShopList />
-      <OnStockList />
-      <SoldList />
-      <SpecialOffer />
+      <Routes>
+        <Route path="/" element={<OnShopList />} />
+        <Route path="/OnStockList" element={<OnStockList />} />
+        <Route path="/SoldList" element={<SoldList />} />
+        <Route path="/SpecialOffer" element={<SpecialOffer />} />
+      </Routes>
       <Footer />
     </div>
   );
