@@ -11,7 +11,7 @@ export const Header = () => {
           <StyledLink to="/">OnShopList</StyledLink>
         </Item>
         <Item>
-          <StyledLink to="/OnStockList">nStockList</StyledLink>
+          <StyledLink to="/OnStockList">OnStockList</StyledLink>
         </Item>
         <Item>
           <StyledLink to="/SoldList">SoldList</StyledLink>
