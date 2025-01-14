@@ -1,4 +1,6 @@
+import { ShoppingCart } from "../shoppingCart";
 import {
+  Button,
   ColumnName,
   Container,
   Divider,
@@ -7,7 +9,14 @@ import {
   ProductData,
 } from "./styled";
 
-export const OnShopList = ({ products }) => {
+export const OnShopList = ({
+  updatedProductsList,
+  active,
+  onButtonBuyClick,
+  activeProduct,
+  soldProducts,
+  setSoldProducts,
+}) => {
   return (
     <Container>
       <List>
@@ -17,37 +26,34 @@ export const OnShopList = ({ products }) => {
           <p>Price</p>
           <p>Quantity</p>
         </ColumnName>
-        {products.map((product) => {
+        {updatedProductsList.map((product) => {
           return (
-            <>
-              <Item key={product.id}>
+            <div key={product.id}>
+              <Item>
                 <ProductData>{product.name}</ProductData>
                 <ProductData> {product.brand}</ProductData>
                 <ProductData $red>{product.price} €</ProductData>
-                <ProductData $green>{product.quantity}</ProductData>{" "}
-                <button
-                  style={{
-                    border: "2px solid black",
-                    padding: "3px 30px",
-                    borderRadius: "28px",
-                    margin: "20px",
-                    position: "absolute",
-                    fontSize: "20px",
-                    right: "430px",
-                    cursor: "pointer",
-                    backgroundColor: "#da7979",
-                  }}
-                  onClick={() => console.log(product.name)}
+                <ProductData $green>
+                  {product.quantity === 0 ? "sold out" : product.quantity}
+                </ProductData>{" "}
+                <Button
+                  disabled={product.quantity === 0}
+                  onClick={() => onButtonBuyClick(product.id)}
                 >
                   Buy
-                </button>
+                </Button>
               </Item>
-
               <Divider />
-            </>
+            </div>
           );
         })}
       </List>
+      <ShoppingCart
+        active={active}
+        activeProduct={activeProduct}
+        soldProducts={soldProducts}
+        setSoldProducts={setSoldProducts}
+      />
     </Container>
   );
 };
