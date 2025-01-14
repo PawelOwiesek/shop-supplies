@@ -12,6 +12,7 @@ import {
 export const OnShopList = ({
   updatedProductsList,
   active,
+  setActive,
   onButtonBuyClick,
   activeProduct,
   soldProducts,
@@ -50,7 +51,7 @@ export const OnShopList = ({
       </List>
       <ShoppingCart
         active={active}
-        activeProduct={activeProduct}
+        setActive={setActive}
         soldProducts={soldProducts}
         setSoldProducts={setSoldProducts}
       />
