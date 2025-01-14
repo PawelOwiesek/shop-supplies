@@ -37,3 +37,9 @@ export const StyledLink = styled(NavLink)`
     color: crimson;
   }
 `;
+
+export const CartButton = styled.button`
+  display: flex;
+  border: none;
+  padding: 0;
+`;

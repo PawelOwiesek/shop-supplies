@@ -1,6 +1,6 @@
-import { Item, List, Logo, NavBar, StyledLink } from "./styled";
+import { CartButton, Item, List, Logo, NavBar, StyledLink } from "./styled";
 
-export const Header = () => {
+export const Header = ({ active, setActive }) => {
   return (
     <NavBar>
       <List>
@@ -18,6 +18,12 @@ export const Header = () => {
         </Item>
         <Item>
           <StyledLink to="/SpecialOffer">SpecialOffer</StyledLink>
+        </Item>
+        <Item>
+          <CartButton onClick={() => setActive(!active)}>
+            {" "}
+            <img src="/ShoppingCart.jpg" width={80} alt=" ShoppingCart" />
+          </CartButton>
         </Item>
       </List>{" "}
     </NavBar>
