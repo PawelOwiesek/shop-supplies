@@ -1,12 +1,37 @@
-export const ShoppingCart = ({ active, soldProducts, setSoldProducts }) => {
+export const ShoppingCart = ({
+  active,
+  setActive,
+  soldProducts,
+  setSoldProducts,
+}) => {
   const onCheckout = () => {
     setSoldProducts([]);
+    setActive(!active);
   };
+
+  function addRepeatingObjects() {
+    const result = {};
+
+    soldProducts.forEach((item) => {
+      const key = JSON.stringify(item, Object.keys(item).sort());
+
+      if (result[key]) {
+        result[key].amount += 1;
+      } else {
+        result[key] = { ...item, amount: 1 };
+      }
+    });
+
+    return Object.values(result);
+  }
+
+  const result = addRepeatingObjects();
+
   return (
     <div
       style={{
         display: `${active ? "block" : "none"}`,
-        position: "absolute",
+        position: "fixed",
         top: "120px",
         right: "40px",
         backgroundColor: "#ffffff",
@@ -16,10 +41,10 @@ export const ShoppingCart = ({ active, soldProducts, setSoldProducts }) => {
     >
       <h4 id="shoppingCart">ShoppingCart</h4>
       <ul>
-        {soldProducts.map((sold) => {
+        {result.map((sold) => {
           return (
             <li key={crypto.randomUUID()}>
-              {sold.name} price:{sold.price}€ {sold.quantity}
+              {sold.name} price:{sold.price}€ st:{sold.amount}
             </li>
           );
         })}
