@@ -7,7 +7,6 @@ import { SoldList } from "./soldList";
 import { SpecialOffer } from "./specialOffer";
 import { products } from "./products";
 import { useState } from "react";
-// import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [active, setActive] = useState(false);
@@ -29,7 +28,7 @@ function App() {
       ...prevList.slice(id),
     ]);
   };
-  console.log(updatedProductsList);
+
   return (
     <div>
       <Header active={active} setActive={setActive} />
