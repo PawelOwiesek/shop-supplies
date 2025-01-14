@@ -14,7 +14,7 @@ export const Header = ({ active, setActive }) => {
           <StyledLink to="/OnStockList">OnStockList</StyledLink>
         </Item>
         <Item>
-          <StyledLink to="/SoldList">SoldList</StyledLink>
+          <StyledLink to="/TotalSoldList">TotalSoldList</StyledLink>
         </Item>
         <Item>
           <StyledLink to="/SpecialOffer">SpecialOffer</StyledLink>
