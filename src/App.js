@@ -3,16 +3,18 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { OnShopList } from "./onShopList";
 import { OnStockList } from "./onStockList";
-import { SoldList } from "./soldList";
+import { TotalSoldList } from "./soldList";
 import { SpecialOffer } from "./specialOffer";
 import { products } from "./products";
 import { useState } from "react";
+import { ShoppingCart } from "./shoppingCart";
 
 function App() {
   const [active, setActive] = useState(false);
   const [activeProduct, setActiveProduct] = useState("");
   const [soldProducts, setSoldProducts] = useState([]);
   const [updatedProductsList, setUpdatedProductLIst] = useState(products);
+  const [totalSold, setTotalSold] = useState([]);
 
   const onButtonBuyClick = (id) => {
     const activeProduct = products.find((product) => product.id === id);
@@ -27,6 +29,10 @@ function App() {
       },
       ...prevList.slice(id),
     ]);
+  };
+
+  const soldStuff = (item) => {
+    setTotalSold((prevItem) => [...prevItem, ...item]);
   };
 
   return (
@@ -49,9 +55,19 @@ function App() {
           }
         />
         <Route path="/OnStockList" element={<OnStockList />} />
-        <Route path="/SoldList" element={<SoldList />} />
+        <Route
+          path="/TotalSoldList"
+          element={<TotalSoldList totalSold={totalSold} />}
+        />
         <Route path="/SpecialOffer" element={<SpecialOffer />} />
       </Routes>
+      <ShoppingCart
+        active={active}
+        setActive={setActive}
+        soldProducts={soldProducts}
+        setSoldProducts={setSoldProducts}
+        soldStuff={soldStuff}
+      />
       <Footer />
     </div>
   );
