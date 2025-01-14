@@ -1,4 +1,3 @@
-import { ShoppingCart } from "../shoppingCart";
 import {
   Button,
   ColumnName,
@@ -49,12 +48,6 @@ export const OnShopList = ({
           );
         })}
       </List>
-      <ShoppingCart
-        active={active}
-        setActive={setActive}
-        soldProducts={soldProducts}
-        setSoldProducts={setSoldProducts}
-      />
     </Container>
   );
 };
