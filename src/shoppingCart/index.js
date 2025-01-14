@@ -3,8 +3,10 @@ export const ShoppingCart = ({
   setActive,
   soldProducts,
   setSoldProducts,
+  soldStuff,
 }) => {
   const onCheckout = () => {
+    soldStuff(result);
     setSoldProducts([]);
     setActive(!active);
   };
