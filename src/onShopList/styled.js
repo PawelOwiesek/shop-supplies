@@ -17,7 +17,7 @@ export const List = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
   background-color: #f3eaea;
 `;
@@ -49,4 +49,16 @@ export const ColumnName = styled.div`
 export const Divider = styled.div`
   border: 2px solid #008080;
   width: 100%;
+`;
+
+export const Button = styled.button`
+  border: 2px solid black;
+  padding: 3px 30px;
+  border-radius: 28px;
+  margin: 20px;
+  position: absolute;
+  font-size: 20px;
+  right: 430px;
+  cursor: pointer;
+  background-color: #da7979;
 `;
