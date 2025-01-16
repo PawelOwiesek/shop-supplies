@@ -22,7 +22,7 @@ export const List = styled.ul`
   width: 100%;
   background-color: #f3eaea;
   transition: transform 2s cubic-bezier(0.09, 0.78, 0.42, 1.03);
-  transform: ${({ $active }) => ($active ? "translateX(-260px)" : "")};
+  transform: ${({ $active }) => ($active ? "translateX(-280px)" : "")};
 `;
 
 export const Item = styled.li`
