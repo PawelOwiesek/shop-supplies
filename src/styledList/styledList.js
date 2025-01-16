@@ -27,11 +27,13 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   display: flex;
+  align-items: center;
   gap: 40px;
   margin-left: 20px;
 `;
 
 export const ProductData = styled.p`
+  margin: 0;
   font-weight: 700;
   word-wrap: break-word;
   min-width: 300px;
