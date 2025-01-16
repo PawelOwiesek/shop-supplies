@@ -16,7 +16,7 @@ export const OnShopList = ({
   return (
     <Container>
       <List $active={active}>
-        <ColumnNameList $normal />
+        <ColumnNameList />
         {updatedProductsList.map((product) => {
           return (
             <div key={product.id}>

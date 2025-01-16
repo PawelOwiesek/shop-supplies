@@ -8,7 +8,6 @@ export const Container = styled.div`
   color: #201e1e;
   font-size: 22px;
   padding-top: 60px;
-  border: 2px solid black;
 `;
 
 export const List = styled.ul`
