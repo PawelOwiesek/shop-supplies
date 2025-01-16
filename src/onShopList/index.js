@@ -39,7 +39,6 @@ export const OnShopList = ({
           );
         })}
       </List>
-      <p style={{ minHeight: "800px" }}></p>
     </Container>
   );
 };
