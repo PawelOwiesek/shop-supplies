@@ -33,7 +33,7 @@ export const Item = styled.li`
 `;
 
 export const ProductData = styled.p`
-  margin: 0;
+  margin: 4px;
   font-weight: 700;
   word-wrap: break-word;
   min-width: 300px;

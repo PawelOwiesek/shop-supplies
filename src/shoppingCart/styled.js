@@ -5,9 +5,7 @@ export const CartContainer = styled.div`
   position: absolute;
   top: 150px;
   right: 40px;
-  background-color: #ffffff;
-  padding: 20px;
+  padding: 20px 20px 50px 20px;
   min-width: 260px;
-  height: fit-content;
   background-color: #ffffff;
 `;
