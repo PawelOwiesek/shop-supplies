@@ -41,7 +41,7 @@ export const ShoppingCart = ({
         {result.map((sold) => {
           return (
             <Item key={crypto.randomUUID()}>
-              <ProductData $red>{sold.name}</ProductData>{" "}
+              <ProductData $red>{sold.name}</ProductData>
               <ProductData $red>{sold.brand}</ProductData>
               <ProductData $green>price:{sold.price}€</ProductData>
               <ProductData $green>
@@ -50,9 +50,10 @@ export const ShoppingCart = ({
               </ProductData>
             </Item>
           );
-        })}
+        })}{" "}
+        <Button onClick={onCheckout}>Checkout</Button>
+        <p>To pay: 400 Euro</p> <p>No. articles: 67</p>
       </List>
-      <Button onClick={onCheckout}>Checkout</Button>
     </CartContainer>
   );
 };
