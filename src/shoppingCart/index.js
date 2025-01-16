@@ -41,8 +41,8 @@ export const ShoppingCart = ({
         {result.map((sold) => {
           return (
             <Item key={crypto.randomUUID()}>
-              <ProductData $green>{sold.name}</ProductData>{" "}
-              <ProductData $green>{sold.brand}</ProductData>
+              <ProductData $red>{sold.name}</ProductData>{" "}
+              <ProductData $red>{sold.brand}</ProductData>
               <ProductData $green>price:{sold.price}€</ProductData>
               <ProductData $green>
                 st:
