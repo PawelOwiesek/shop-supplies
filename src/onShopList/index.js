@@ -1,31 +1,22 @@
+import { ColumnNameList } from "../listColumn";
 import {
   Button,
-  ColumnName,
   Container,
   Divider,
   Item,
   List,
   ProductData,
-} from "./styled";
+} from "../styledList/styledList";
 
 export const OnShopList = ({
   updatedProductsList,
   active,
-  setActive,
   onButtonBuyClick,
-  activeProduct,
-  soldProducts,
-  setSoldProducts,
 }) => {
   return (
     <Container>
-      <List>
-        <ColumnName>
-          <p>Product</p>
-          <p>Brand</p>
-          <p>Price</p>
-          <p>Quantity</p>
-        </ColumnName>
+      <List $active={active}>
+        <ColumnNameList $normal />
         {updatedProductsList.map((product) => {
           return (
             <div key={product.id}>
