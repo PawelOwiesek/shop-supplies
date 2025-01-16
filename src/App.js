@@ -13,15 +13,15 @@ function App() {
   const [active, setActive] = useState(false);
   const [activeProduct, setActiveProduct] = useState("");
   const [soldProducts, setSoldProducts] = useState([]);
-  const [updatedProductsList, setUpdatedProductLIst] = useState(products);
+  const [updatedProductsList, setUpdatedProductList] = useState(products);
   const [totalSold, setTotalSold] = useState([]);
 
-  const onButtonBuyClick = (id) => {
-    const activeProduct = products.find((product) => product.id === id);
-    setActiveProduct(activeProduct);
-    setActive(true);
-    setSoldProducts([...soldProducts, activeProduct]);
-    setUpdatedProductLIst((prevList) => [
+  const findActiveProduct = (id) => {
+    return products.find((product) => product.id === id);
+  };
+
+  const updateProductQuantity = (id) => {
+    setUpdatedProductList((prevList) => [
       ...prevList.slice(0, id - 1),
       {
         ...prevList[id - 1],
@@ -29,6 +29,22 @@ function App() {
       },
       ...prevList.slice(id),
     ]);
+  };
+
+  const addToSoldProducts = (product) => {
+    setSoldProducts((prevSoldProducts) => [...prevSoldProducts, product]);
+  };
+
+  const openCart = () => {
+    setActive(true);
+  };
+
+  const onButtonBuyClick = (id) => {
+    const activeProduct = findActiveProduct(id);
+    setActiveProduct(activeProduct);
+    openCart();
+    addToSoldProducts(activeProduct);
+    updateProductQuantity(id);
   };
 
   const soldStuff = (item) => {
