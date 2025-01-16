@@ -9,3 +9,16 @@ export const CartContainer = styled.div`
   min-width: 260px;
   background-color: #ffffff;
 `;
+
+export const Checkout = styled.div`
+  display: flex;
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;
+`;
+
+export const TotalAmounts = styled.span`
+  color: #c03f3f;
+  font-size: 26px;
+  padding: 0 10px;
+`;
