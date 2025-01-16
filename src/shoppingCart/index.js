@@ -1,3 +1,7 @@
+import { ColumnNameList } from "../listColumn";
+import { Button, Item, List, ProductData } from "../styledList/styledList";
+import { CartContainer } from "./styled";
+
 export const ShoppingCart = ({
   active,
   setActive,
@@ -30,28 +34,25 @@ export const ShoppingCart = ({
   const result = addRepeatingObjects();
 
   return (
-    <div
-      style={{
-        display: `${active ? "block" : "none"}`,
-        position: "fixed",
-        top: "120px",
-        right: "40px",
-        backgroundColor: "#ffffff",
-        padding: "20px",
-        minWidth: "260px",
-      }}
-    >
+    <CartContainer $active={active}>
       <h4 id="shoppingCart">ShoppingCart</h4>
-      <ul>
+      <ColumnNameList $small />
+      <List>
         {result.map((sold) => {
           return (
-            <li key={crypto.randomUUID()}>
-              {sold.name} price:{sold.price}€ st:{sold.amount}
-            </li>
+            <Item key={crypto.randomUUID()}>
+              <ProductData $green>{sold.name}</ProductData>{" "}
+              <ProductData $green>{sold.brand}</ProductData>
+              <ProductData $green>price:{sold.price}€</ProductData>
+              <ProductData $green>
+                st:
+                {sold.amount}
+              </ProductData>
+            </Item>
           );
         })}
-      </ul>
-      <button onClick={onCheckout}>Checkout</button>
-    </div>
+      </List>
+      <Button onClick={onCheckout}>Checkout</Button>
+    </CartContainer>
   );
 };
