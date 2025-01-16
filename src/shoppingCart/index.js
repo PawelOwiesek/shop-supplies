@@ -1,6 +1,6 @@
 import { ColumnNameList } from "../listColumn";
 import { Button, Item, List, ProductData } from "../styledList/styledList";
-import { CartContainer } from "./styled";
+import { CartContainer, Checkout, TotalAmounts } from "./styled";
 
 export const ShoppingCart = ({
   active,
@@ -22,9 +22,9 @@ export const ShoppingCart = ({
       const key = JSON.stringify(item, Object.keys(item).sort());
 
       if (result[key]) {
-        result[key].amount += 1;
+        result[key].quantity += 1;
       } else {
-        result[key] = { ...item, amount: 1 };
+        result[key] = { ...item, quantity: 1 };
       }
     });
 
@@ -32,6 +32,15 @@ export const ShoppingCart = ({
   }
 
   const result = addRepeatingObjects();
+
+  const initialValue = 0;
+  const totalAmount = result?.reduce((acc, item) => {
+    return acc + (item.quantity || 0);
+  }, initialValue);
+
+  const totalPrice = result.reduce((acc, item) => {
+    return acc + (item.price * item.quantity || 0);
+  }, initialValue);
 
   return (
     <CartContainer $active={active}>
@@ -46,13 +55,22 @@ export const ShoppingCart = ({
               <ProductData $green>price:{sold.price}€</ProductData>
               <ProductData $green>
                 st:
-                {sold.amount}
+                {sold.quantity}
               </ProductData>
             </Item>
           );
         })}{" "}
         <Button onClick={onCheckout}>Checkout</Button>
-        <p>To pay: 400 Euro</p> <p>No. articles: 67</p>
+        <Checkout>
+          <p>
+            To paid:
+            <TotalAmounts> {totalPrice.toFixed(2)}€</TotalAmounts>{" "}
+          </p>
+          <p>
+            No. articles:
+            <TotalAmounts> {totalAmount}</TotalAmounts>
+          </p>
+        </Checkout>
       </List>
     </CartContainer>
   );
