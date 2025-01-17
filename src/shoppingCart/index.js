@@ -52,11 +52,8 @@ export const ShoppingCart = ({
             <Item key={crypto.randomUUID()}>
               <ProductData $red>{sold.name}</ProductData>
               <ProductData $red>{sold.brand}</ProductData>
-              <ProductData $green>price:{sold.price}€</ProductData>
-              <ProductData $green>
-                st:
-                {sold.quantity}
-              </ProductData>
+              <ProductData $green>Price: {sold.price} €</ProductData>
+              <ProductData $green>{sold.quantity}</ProductData>
             </Item>
           );
         })}{" "}
