@@ -20,7 +20,7 @@ export const List = styled.ul`
   align-items: flex-start;
   max-width: 1200px;
   width: 100%;
-  background-color: #f3eaea;
+  background-color: #ffffff;
   transition: transform 2s cubic-bezier(0.09, 0.78, 0.42, 1.03);
   transform: ${({ $active }) => ($active ? "translateX(-280px)" : "")};
 `;
@@ -40,12 +40,12 @@ export const ProductData = styled.p`
   min-width: ${({ $red }) => ($red ? "100px" : "")};
   min-width: ${({ $green }) => ($green ? "60px" : "")};
   width: 100%;
-  color: ${({ $red }) => ($red ? "crimson" : "")};
-  color: ${({ $green }) => ($green ? "green" : "")};
+  color: ${({ $red }) => ($red ? " #880d0d" : "")};
+  color: ${({ $green }) => ($green ? "#037c07" : "")};
 `;
 
 export const Divider = styled.div`
-  border: 2px solid #008080;
+  border: 2px solid rgb(0, 0, 0);
   width: 100%;
 `;
 
@@ -56,5 +56,5 @@ export const Button = styled.button`
   margin: 20px;
   font-size: 20px;
   cursor: pointer;
-  background-color: #da7979;
+  background-color: #beb6b6;
 `;
