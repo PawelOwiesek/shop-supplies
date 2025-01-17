@@ -39,6 +39,7 @@ export const ProductData = styled.p`
   min-width: 300px;
   min-width: ${({ $red }) => ($red ? "100px" : "")};
   min-width: ${({ $green }) => ($green ? "60px" : "")};
+  min-width: ${({ $large }) => ($large ? "660px" : "")};
   width: 100%;
   color: ${({ $red }) => ($red ? " #880d0d" : "")};
   color: ${({ $green }) => ($green ? "#037c07" : "")};
