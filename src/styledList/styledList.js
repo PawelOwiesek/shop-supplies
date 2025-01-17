@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-image: url(/logo.jpg);
   background-repeat: no-repeat;
-  background-attachment: local;
   background-size: cover;
+  min-height: 100vh;
   color: #201e1e;
   font-size: 22px;
   padding-top: 60px;
@@ -45,7 +45,7 @@ export const ProductData = styled.p`
 `;
 
 export const Divider = styled.div`
-  border: 2px solid rgb(0, 0, 0);
+  border: 1px solid #0000001f;
   width: 100%;
 `;
 
