@@ -5,7 +5,8 @@ export const TotalSoldList = ({ totalSold }) => {
         return (
           <li key={item.name}>
             {item.name}-st:
-            {item.amount}
+            {item.quantity}
+            sold for:{(item.price * item.quantity).toFixed(2)}
           </li>
         );
       })}
