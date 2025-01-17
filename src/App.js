@@ -70,7 +70,15 @@ function App() {
             />
           }
         />
-        <Route path="/OnStockList" element={<OnStockList />} />
+        <Route
+          path="/OnStockList"
+          element={
+            <OnStockList
+              updatedProductsList={updatedProductsList}
+              setUpdatedProductList={setUpdatedProductList}
+            />
+          }
+        />
         <Route
           path="/TotalSoldList"
           element={<TotalSoldList totalSold={totalSold} />}
