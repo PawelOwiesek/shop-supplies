@@ -53,46 +53,43 @@ function App() {
 
   return (
     <div>
-      <Header active={active} setActive={setActive} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <OnShopList
-              products={products}
-              updatedProductsList={updatedProductsList}
-              active={active}
-              setActive={setActive}
-              onButtonBuyClick={onButtonBuyClick}
-              activeProduct={activeProduct}
-              soldProducts={soldProducts}
-              setSoldProducts={setSoldProducts}
-            />
-          }
+      <>
+        <Header active={active} setActive={setActive} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <OnShopList
+                updatedProductsList={updatedProductsList}
+                active={active}
+                onButtonBuyClick={onButtonBuyClick}
+              ></OnShopList>
+            }
+          />
+          <Route
+            path="/OnStockList"
+            element={
+              <OnStockList
+                updatedProductsList={updatedProductsList}
+                setUpdatedProductList={setUpdatedProductList}
+              />
+            }
+          />
+          <Route
+            path="/TotalSoldList"
+            element={<TotalSoldList totalSold={totalSold} />}
+          />
+          <Route path="/SpecialOffer" element={<SpecialOffer />} />
+        </Routes>
+        <ShoppingCart
+          active={active}
+          setActive={setActive}
+          soldProducts={soldProducts}
+          setSoldProducts={setSoldProducts}
+          soldStuff={soldStuff}
         />
-        <Route
-          path="/OnStockList"
-          element={
-            <OnStockList
-              updatedProductsList={updatedProductsList}
-              setUpdatedProductList={setUpdatedProductList}
-            />
-          }
-        />
-        <Route
-          path="/TotalSoldList"
-          element={<TotalSoldList totalSold={totalSold} />}
-        />
-        <Route path="/SpecialOffer" element={<SpecialOffer />} />
-      </Routes>
-      <ShoppingCart
-        active={active}
-        setActive={setActive}
-        soldProducts={soldProducts}
-        setSoldProducts={setSoldProducts}
-        soldStuff={soldStuff}
-      />
-      <Footer />
+        <Footer />
+      </>
     </div>
   );
 }
