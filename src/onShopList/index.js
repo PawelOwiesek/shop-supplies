@@ -1,12 +1,6 @@
 import { ColumnNameList } from "../listColumn";
-import {
-  Button,
-  Container,
-  Divider,
-  Item,
-  List,
-  ProductData,
-} from "../styledList/styledList";
+import { Container, Divider, List } from "../styledList/styledList";
+import { Product } from "./product";
 
 export const OnShopList = ({
   updatedProductsList,
@@ -20,20 +14,7 @@ export const OnShopList = ({
         {updatedProductsList.map((product) => {
           return (
             <div key={product.id}>
-              <Item>
-                <ProductData>{product.name}</ProductData>
-                <ProductData> {product.brand}</ProductData>
-                <ProductData $red>{product.price} €</ProductData>
-                <ProductData $green>
-                  {product.quantity === 0 ? "sold out" : product.quantity}
-                </ProductData>{" "}
-                <Button
-                  disabled={product.quantity === 0}
-                  onClick={() => onButtonBuyClick(product.id)}
-                >
-                  Buy
-                </Button>
-              </Item>
+              <Product product={product} onClick={onButtonBuyClick} />
               <Divider />
             </div>
           );
