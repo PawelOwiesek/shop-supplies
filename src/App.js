@@ -1,3 +1,5 @@
+import { products } from "./products";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Footer } from "./footer";
 import { Header } from "./header";
@@ -5,8 +7,6 @@ import { OnShopList } from "./onShopList";
 import { OnStockList } from "./onStockList";
 import { TotalSoldList } from "./soldList";
 import { SpecialOffer } from "./specialOffer";
-import { products } from "./products";
-import { useState } from "react";
 import { ShoppingCart } from "./shoppingCart";
 
 function App() {
