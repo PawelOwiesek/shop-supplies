@@ -1,4 +1,5 @@
 import { Container, Item, List, ProductData } from "../styledList/styledList";
+import Product from "./product";
 
 export const TotalSoldList = ({ totalSold }) => {
   const initialValue = 0;
@@ -38,16 +39,7 @@ export const TotalSoldList = ({ totalSold }) => {
           </div>
           <List>
             {totalSold?.map((item) => {
-              return (
-                <Item key={item.name}>
-                  <ProductData>{item.name}</ProductData>
-                  <ProductData> {item.quantity}</ProductData>
-                  <ProductData>
-                    {" "}
-                    sold for:{(item.price * item.quantity).toFixed(2)}
-                  </ProductData>
-                </Item>
-              );
+              return <Product key={item.id} item={item} />;
             })}
           </List>
           <p
