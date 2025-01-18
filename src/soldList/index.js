@@ -1,4 +1,4 @@
-import { Container, Item, List, ProductData } from "../styledList/styledList";
+import { Container, List } from "../styledList/styledList";
 import Product from "./product";
 
 export const TotalSoldList = ({ totalSold }) => {
