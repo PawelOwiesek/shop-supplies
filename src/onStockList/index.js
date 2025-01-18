@@ -1,10 +1,5 @@
-import {
-  List,
-  Container,
-  Item,
-  ProductData,
-  Button,
-} from "../styledList/styledList";
+import { List, Container, Button } from "../styledList/styledList";
+import Product from "./product";
 
 export const OnStockList = ({ setUpdatedProductList, updatedProductsList }) => {
   return (
@@ -12,21 +7,8 @@ export const OnStockList = ({ setUpdatedProductList, updatedProductsList }) => {
       <h1 style={{ textAlign: "center", color: " #ffffff" }}>Stock list</h1>
       <List>
         {updatedProductsList.map((item) => {
-          return (
-            <Item>
-              <ProductData> {item.name}</ProductData>{" "}
-              <ProductData $large>
-                {item.quantity === 0 ? (
-                  <div style={{ display: "inline-block" }}>
-                    No more products : <Button>Send more to shop</Button>
-                  </div>
-                ) : (
-                  item.quantity
-                )}
-              </ProductData>
-            </Item>
-          );
-        })}{" "}
+          return <Product item={item} key={item.id} />;
+        })}
         <div>
           <Button>Add new product</Button>
         </div>
