@@ -1,11 +1,6 @@
 import { ColumnNameList } from "../listColumn";
-import {
-  Button,
-  Divider,
-  Item,
-  List,
-  ProductData,
-} from "../styledList/styledList";
+import { Button, List } from "../styledList/styledList";
+import Product from "./product";
 import { CartContainer, Checkout, TotalAmounts } from "./styled";
 
 export const ShoppingCart = ({
@@ -51,26 +46,16 @@ export const ShoppingCart = ({
   return (
     <CartContainer $active={active}>
       <h4 id="shoppingCart">ShoppingCart</h4>
-      <ColumnNameList $small />
+      <ColumnNameList $small key={crypto.randomUUID()} />
       <List>
         {result.map((sold) => {
-          return (
-            <>
-              <Item key={crypto.randomUUID()}>
-                <ProductData $red>{sold.name}</ProductData>
-                <ProductData $red>{sold.brand}</ProductData>
-                <ProductData $green>Price: {sold.price} €</ProductData>
-                <ProductData $green>{sold.quantity}</ProductData>
-              </Item>
-              <Divider />
-            </>
-          );
-        })}{" "}
+          return <Product key={crypto.randomUUID()} sold={sold} />;
+        })}
         <Button onClick={onCheckout}>Checkout</Button>
         <Checkout>
           <p>
             To paid:
-            <TotalAmounts> {totalPrice.toFixed(2)} €</TotalAmounts>{" "}
+            <TotalAmounts> {totalPrice.toFixed(2)} €</TotalAmounts>
           </p>
           <p>
             No. articles:
